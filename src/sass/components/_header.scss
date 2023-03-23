@@ -1,0 +1,81 @@
+.form-check-input, .form-check-input:checked[type=checkbox], .form-check-input:focus {
+    border-color: transparent;
+    background-color: $color_ligth_secundario;
+} 
+
+.form-check-input{
+    background-image: url('../../img/circulo-light-switch.svg') !important;
+}
+
+.form-check-input:checked[type=checkbox] {
+    background-image: url('../../img/circulo-dark-switch.svg') !important;
+}
+
+.form-check-input:active {
+    filter: none;
+}
+
+.form-check-input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+
+
+.light {
+    
+    background-color: $color_ligth_principal;
+
+    .container{
+        .row{
+
+            .col-12 {
+                .form-check{
+                    label{
+                        color: $color_ligth_secundario;
+                    }
+                }
+            }
+
+            .col-12 {
+                h1 {
+                    color: $color_ligth_secundario;
+                }
+            }
+        }
+    }
+    
+}
+
+.dark {
+    header{
+        background-color: $color_dark_principal;
+
+        .container{
+            .row{
+
+                .col-12 {
+                    .form-check{
+                        label{
+                            color: $color_ligth_secundario;
+                        }
+                    }
+                }
+
+                .col-12{
+                    h1{
+                        color: $color_ligth_secundario;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.sombra{
+    -webkit-box-shadow: $sombra; 
+    box-shadow: $sombra;
+}
+
+
+
