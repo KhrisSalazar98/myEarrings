@@ -1,3 +1,112 @@
 body{
     font-family: $family;
 }
+
+main{
+    height: 100vh;
+}
+
+
+.Light {
+    main {
+        background-color: $color_ligth_secundario;
+
+        .container {
+
+            h2 , .txt_pendientes {
+                color: $color_ligth_principal;
+            }
+
+            div {
+                .btn_nuevaTarea {
+                    color: $color_dark_principal;
+                    background-color: $color_ligth_principal;
+
+                    transition: all 0.3s;
+                }
+
+                // .btn_nuevaTarea:hover{
+                //     background-color: 
+                // }
+            }
+
+            hr {
+                color: $color_dark_principal;
+            }
+
+            .row {
+
+                .col-12{
+
+                    div{
+
+                        background-color: $color_ligth_principal;
+
+                        h3 {
+                            color: $color_dark_principal;
+                        }
+
+                        .txt_description {
+                            color: $color_ligth_secundario;
+                        }
+
+                        .form_check_box > .form-check-input:checked[type=checkbox] {
+                            background-color: $color_dark_principal;
+                        }
+                    }
+                }
+            }
+    
+        }
+    }
+}
+
+.Dark {
+    main {
+        background-color: $color_dark_secundario;
+
+        .container {
+
+            h2 , .txt_pendientes {
+                color: $color_ligth_secundario;
+            }
+
+            div {
+                .btn_nuevaTarea {
+                    color: $color_ligth_secundario;
+                    background-color: $color_dark_principal;
+
+                    transition: all 0.5s;
+                }
+
+                // .btn_nuevaTarea:hover{
+                //     background-color: 
+                // }
+            }
+
+            hr {
+                color: $color_ligth_secundario;
+            }
+
+            .row {
+
+                .col-12{
+
+                    div{
+
+                        background-color: $color_dark_principal;
+
+                        h3 {
+                            color: $color_ligth_principal;
+                        }
+
+                        .txt_description {
+                            color: $color_ligth_secundario;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}

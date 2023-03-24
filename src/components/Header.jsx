@@ -1,10 +1,16 @@
 import React from 'react';
 
-import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { changeTheme } from '../features/theme/themeSlice'; 
 
-const Header = () => {
+const Header = ({selector}) => {
 
-    const selector = useSelector(state => state.theme);
+    const dispatch = useDispatch();
+    
+    const toggleTheme = () => {
+        dispatch(changeTheme());
+    }
+
 
     return (
         <header className="sombra">
@@ -12,8 +18,8 @@ const Header = () => {
                 <div className="row">
                     <div className="col-12 col-sm-12 col-lg-4 d-flex justify-content-center align-items-center">
                         <div className="form-check form-switch mt-3 mt-lg-0">
-                            <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
-                            <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Light Mode</label>
+                            <input onChange={toggleTheme} checked={selector.isChecked} className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
+                            <label className="form-check-label" htmlFor="flexSwitchCheckDefault">{selector.mode} Mode</label>
                         </div>
                     </div>
 

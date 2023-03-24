@@ -3,11 +3,11 @@
     background-color: $color_ligth_secundario;
 } 
 
-.form-check-input{
+.form-switch > .form-check-input{
     background-image: url('../../img/circulo-light-switch.svg') !important;
 }
 
-.form-check-input:checked[type=checkbox] {
+.form-switch > .form-check-input:checked[type=checkbox] {
     background-image: url('../../img/circulo-dark-switch.svg') !important;
 }
 
@@ -22,8 +22,8 @@
 
 
 
-.light {
-    
+.Light {
+
     background-color: $color_ligth_principal;
 
     .container{
@@ -47,7 +47,7 @@
     
 }
 
-.dark {
+.Dark {
     header{
         background-color: $color_dark_principal;
 
