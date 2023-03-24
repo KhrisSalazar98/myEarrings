@@ -1,4 +1,5 @@
 body{
+    background-color: $color_dark_secundario;
     font-family: $family;
 }
 
@@ -6,10 +7,35 @@ main{
     height: 100vh;
 }
 
+.form_check_box > .form-check-input {
+    border: 2px solid rgba(0,0,0,0.5) !important;
+    @include transition_elements();
+}
+
+.fs_18{
+    font-size: $font_18;
+}
+
+.fs_20 {
+    font-size: $font_20;
+}
+
+
+@keyframes animacion_urgente {
+    from { color: $color_tareaUrgenteOscuro }
+    to { color: $color_tareaUrgenteClaro }
+}
+
+
+@keyframes animacion_completado {
+    from { color: $color_tareaCompletadaOscuro}
+    to { color: $color_tareaCompletadaClaro}    
+}
 
 .Light {
     main {
         background-color: $color_ligth_secundario;
+        @include transition_elements();
 
         .container {
 
@@ -22,12 +48,12 @@ main{
                     color: $color_dark_principal;
                     background-color: $color_ligth_principal;
 
-                    transition: all 0.3s;
+                    @include transition_elements();
                 }
 
-                // .btn_nuevaTarea:hover{
-                //     background-color: 
-                // }
+                .btn_nuevaTarea:hover{
+                    @include color_hover($color_ligth_principal, $color_dark_principal);
+                }
             }
 
             hr {
@@ -41,17 +67,54 @@ main{
                     div{
 
                         background-color: $color_ligth_principal;
+                        @include transition_elements();
 
                         h3 {
                             color: $color_dark_principal;
+                            @include transition_elements();
                         }
 
                         .txt_description {
-                            color: $color_ligth_secundario;
+                            color: $color_dark_principal;
                         }
 
-                        .form_check_box > .form-check-input:checked[type=checkbox] {
-                            background-color: $color_dark_principal;
+
+
+                        .form_check_box {
+                            .form-check-input:checked[type=checkbox] {
+                                background-color: $color_dark_principal;
+                            }
+
+                            label {
+                                .txt_pendiente {
+                                    color: $color_dark_secundario;
+                                }
+
+                                .txt_urgente {
+                                    animation: animacion_urgente 1.5s ease-out infinite;
+                                }
+
+                                .txt_completado {
+                                    animation: animacion_completado 1.5s ease-out infinite;
+                                }
+                            }
+                        }
+                        
+                        div {
+                            .btn_editar, .btn_editar_disable {
+                                color: $blanco;
+                                background-color: $color_dark_principal;
+                                @include transition_elements();
+                            }
+
+                            .btn_editar:hover{
+                                @include color_hover($color_dark_secundario, $color_ligth_secundario);
+                            }
+
+                            .btn_editar_disable {
+                                cursor: default;
+                                opacity: 0.7;
+                            }
                         }
                     }
                 }
@@ -64,6 +127,7 @@ main{
 .Dark {
     main {
         background-color: $color_dark_secundario;
+        @include transition_elements();
 
         .container {
 
@@ -76,12 +140,12 @@ main{
                     color: $color_ligth_secundario;
                     background-color: $color_dark_principal;
 
-                    transition: all 0.5s;
+                    @include transition_elements();
                 }
 
-                // .btn_nuevaTarea:hover{
-                //     background-color: 
-                // }
+                .btn_nuevaTarea:hover{
+                    @include color_hover($color_dark_principal, $color_ligth_principal);
+                }
             }
 
             hr {
@@ -95,14 +159,56 @@ main{
                     div{
 
                         background-color: $color_dark_principal;
+                        @include transition_elements();
 
                         h3 {
                             color: $color_ligth_principal;
+                            @include transition_elements();
                         }
 
                         .txt_description {
                             color: $color_ligth_secundario;
                         }
+
+                       
+                        .form_check_box {
+                            .form-check-input:checked[type=checkbox] {
+                                background-color: $color_ligth_principal;
+                            }
+
+                            label {
+                                .txt_pendiente {
+                                    color: $color_dark_secundario;
+                                }
+
+                                .txt_urgente {
+                                    animation: animacion_urgente 1.5s ease-out infinite;
+                                }
+
+                                .txt_completado {
+                                    animation: animacion_completado 1.5s ease-out infinite;
+                                }
+                            }
+                        }
+
+                        div {
+                            .btn_editar, .btn_editar_disable {
+                                color: $blanco;
+                                background-color: $color_ligth_principal;
+                                @include transition_elements();
+                            }
+
+                            .btn_editar:hover{
+                                @include color_hover($color_ligth_secundario, $color_dark_secundario);
+                            }
+
+                            .btn_editar_disable {
+                                cursor: default;
+                                opacity: 0.5;
+                            }
+                        }
+
+                        
                     }
                 }
             }

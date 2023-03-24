@@ -1,0 +1,8 @@
+@mixin transition_elements {
+    transition: all 0.5s ease-out;
+}
+
+@mixin color_hover($color, $background-color) {
+    color: $color;
+    background-color: $background-color;
+}

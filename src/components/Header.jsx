@@ -13,12 +13,12 @@ const Header = ({selector}) => {
 
 
     return (
-        <header className="sombra">
+        <header>
             <div className='container'>
                 <div className="row">
                     <div className="col-12 col-sm-12 col-lg-4 d-flex justify-content-center align-items-center">
                         <div className="form-check form-switch mt-3 mt-lg-0">
-                            <input onChange={toggleTheme} checked={selector.isChecked} className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
+                            <input onChange={toggleTheme} checked={selector.isChecked} className="sombra_btn form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
                             <label className="form-check-label" htmlFor="flexSwitchCheckDefault">{selector.mode} Mode</label>
                         </div>
                     </div>
@@ -28,7 +28,6 @@ const Header = ({selector}) => {
                     </div>
                 </div>    
             </div>
-            
         </header>
     )
 }
