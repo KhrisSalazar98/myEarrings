@@ -33,9 +33,8 @@ function App() {
 
   }, [selector]);
   
-
   return (
-    <div className={selector.mode}>
+    <div className={`${selector.mode}`}>
       <Header selector={selector}  />
       <Contenido selectorTasks={selectorTasks} />
     </div>

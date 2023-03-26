@@ -1,9 +1,8 @@
-body{
-    background-color: $color_dark_secundario;
+body {
     font-family: $family;
 }
 
-main{
+main {
     height: 100vh;
 }
 
@@ -33,10 +32,10 @@ main{
 }
 
 .Light {
+    background-color: $color_ligth_secundario;
+    @include transition_elements();
+    
     main {
-        background-color: $color_ligth_secundario;
-        @include transition_elements();
-
         .container {
 
             h2 , .txt_pendientes {
@@ -112,7 +111,7 @@ main{
                             }
 
                             .btn_editar_disable {
-                                cursor: default;
+                                cursor: not-allowed;
                                 opacity: 0.7;
                             }
                         }
@@ -125,10 +124,10 @@ main{
 }
 
 .Dark {
-    main {
-        background-color: $color_dark_secundario;
-        @include transition_elements();
+    background-color: $color_dark_secundario;
+    @include transition_elements();
 
+    main {
         .container {
 
             h2 , .txt_pendientes {
