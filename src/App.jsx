@@ -15,6 +15,9 @@ function App() {
   const selector = useSelector(state => state.theme);
   const selectorTasks = useSelector(state => state.tasks);
 
+  const body = document.querySelector('#body');
+
+  
 
   // Obtener la información del estado que se procesó previamente
   useEffect(() => {
@@ -24,7 +27,7 @@ function App() {
       dispatch(getTheme(storedTheme));
     }
 
-  }, [])
+  }, []);
 
   // Cada vez que el estado tenga cambios
   useEffect(() => {
@@ -32,12 +35,17 @@ function App() {
     localStorage.setItem(KEY_THEME, JSON.stringify(selector));
 
   }, [selector]);
+
+  body.classList.contains('Light') && body.classList.remove('Light');
+  body.classList.contains('Dark') && body.classList.remove('Dark');
+
+  body.classList.add(selector.mode);
   
   return (
-    <div className={`${selector.mode}`}>
+    <>
       <Header selector={selector}  />
       <Contenido selectorTasks={selectorTasks} />
-    </div>
+    </>
   );
 }
 

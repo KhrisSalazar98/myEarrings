@@ -24,55 +24,76 @@
 
 .Light {
 
-    header{
-        background-color: $color_ligth_principal;
-        @include transition_elements();
+    background-color: $color_ligth_secundario;
+    @include transition_elements();
 
-        .container{
-            .row{
+    #root{
+
+        header{
+
+            background-color: $color_ligth_principal;
+            @include transition_elements();
+            
+
+            .container{
+                .row{
     
-                .col-12 {
-                    .form-check{
-                        label{
+                    .col-12 {
+                        .form-check{
+                            label{
+                                color: $color_ligth_secundario;
+                            }
+                        }
+                    }
+    
+                    .col-12 {
+                        h1 {
                             color: $color_ligth_secundario;
                         }
                     }
                 }
-    
-                .col-12 {
-                    h1 {
-                        color: $color_ligth_secundario;
-                    }
-                }
             }
+
         }
     }
+
+   
 }
 
 .Dark {
-    header{
-        background-color: $color_dark_principal;
-        @include transition_elements();
 
-        .container{
-            .row{
+    background-color: $color_dark_secundario;
+    @include transition_elements();
 
-                .col-12 {
-                    .form-check{
-                        label{
+    #root {
+
+        header {
+
+            background-color: $color_dark_principal;
+            @include transition_elements();
+
+            .container{
+                .row{
+
+                    .col-12 {
+                        .form-check{
+                            label{
+                                color: $color_ligth_secundario;
+                            }
+                        }
+                    }
+
+                    .col-12{
+                        h1{
                             color: $color_ligth_secundario;
                         }
                     }
                 }
-
-                .col-12{
-                    h1{
-                        color: $color_ligth_secundario;
-                    }
-                }
             }
+
         }
     }
+    
 }
 
 .sombra {
