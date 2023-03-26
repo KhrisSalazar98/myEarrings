@@ -1,0 +1,110 @@
+.form-check-input, .form-check-input:checked[type=checkbox], .form-check-input:focus {
+    border-color: transparent;
+    background-color: $color_ligth_secundario;
+    cursor: pointer;
+    
+} 
+
+.form-switch > .form-check-input{
+    background-image: url('../../img/circulo-light-switch.svg') !important;
+}
+
+.form-switch > .form-check-input:checked[type=checkbox] {
+    background-image: url('../../img/circulo-dark-switch.svg') !important;
+}
+
+.form-check-input:active {
+    filter: none;
+}
+
+.form-check-input:focus {
+    outline: none;
+}
+
+
+.Light {
+
+    background-color: $color_ligth_secundario;
+    @include transition_elements();
+
+    #root{
+
+        header{
+
+            background-color: $color_ligth_principal;
+            @include transition_elements();
+            
+
+            .container{
+                .row{
+    
+                    .col-12 {
+                        .form-check{
+                            label{
+                                color: $color_ligth_secundario;
+                            }
+                        }
+                    }
+    
+                    .col-12 {
+                        h1 {
+                            color: $color_ligth_secundario;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+
+   
+}
+
+.Dark {
+
+    background-color: $color_dark_secundario;
+    @include transition_elements();
+
+    #root {
+
+        header {
+
+            background-color: $color_dark_principal;
+            @include transition_elements();
+
+            .container{
+                .row{
+
+                    .col-12 {
+                        .form-check{
+                            label{
+                                color: $color_ligth_secundario;
+                            }
+                        }
+                    }
+
+                    .col-12{
+                        h1{
+                            color: $color_ligth_secundario;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+    
+}
+
+.sombra {
+    -webkit-box-shadow: $sombra; 
+    box-shadow: $sombra;
+}
+
+.sombra_btn {
+    -webkit-box-shadow: $sombra_btn !important;
+    box-shadow: $sombra_btn !important;
+}
+
+
+
