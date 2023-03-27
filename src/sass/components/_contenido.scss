@@ -2,6 +2,14 @@ body {
     font-family: $family;
 }
 
+.color_dark_1 {
+    color: $color_dark_principal;
+}
+
+.color_light_2 {
+    color: $color_ligth_secundario;
+}
+
 .form_check_box > .form-check-input {
     border: 2px solid rgba(0,0,0,0.5) !important;
     @include transition_elements();
@@ -115,6 +123,7 @@ body {
                             }
                         }
                     }
+
                 }
     
             }

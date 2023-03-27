@@ -13,7 +13,7 @@ const Header = ({selector}) => {
 
 
     return (
-        <header>
+        <header className='sombra'>
             <div className='container'>
                 <div className="row">
                     <div className="col-12 col-sm-12 col-lg-4 d-flex justify-content-center align-items-center">

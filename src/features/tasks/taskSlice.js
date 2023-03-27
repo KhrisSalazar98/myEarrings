@@ -13,24 +13,24 @@ const initialState = [
         description: "Descripción de tarea 1",
         status: 0,
     },
-    {
-        id: "2",
-        name: "Tarea 2",
-        description: "Descripción de tarea 2",
-        status: 1,
-    },
-    {
-        id: "3",
-        name: "Tarea 3",
-        description: "Descripción de tarea 3",
-        status: 0,
-    },
-    {
-        id: "4",
-        name: "Tarea 4",
-        description: "Descripción de tarea 4",
-        status: 2,
-    },
+    // {
+    //     id: "2",
+    //     name: "Tarea 2",
+    //     description: "Descripción de tarea 2",
+    //     status: 1,
+    // },
+    // {
+    //     id: "3",
+    //     name: "Tarea 3",
+    //     description: "Descripción de tarea 3",
+    //     status: 0,
+    // },
+    // {
+    //     id: "4",
+    //     name: "Tarea 4",
+    //     description: "Descripción de tarea 4",
+    //     status: 2,
+    // },
 
 ];
 

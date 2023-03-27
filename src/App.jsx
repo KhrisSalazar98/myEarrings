@@ -44,7 +44,7 @@ function App() {
   return (
     <>
       <Header selector={selector}  />
-      <Contenido selectorTasks={selectorTasks} />
+      <Contenido selector={selector} selectorTasks={selectorTasks} />
     </>
   );
 }
