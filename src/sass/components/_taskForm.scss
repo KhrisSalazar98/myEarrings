@@ -57,10 +57,17 @@ textarea {
                                         
                                         label {
                                             color: $color_dark_principal;
+                                            @include transition_elements();
                                         }
 
                                         .input_form {
                                             background-color: $color_ligth_secundario;
+                                            @include transition_elements();
+                                        }
+
+                                        .txt_instruccion {
+                                            color: $color_ligth_secundario;
+                                            @include transition_elements();
                                         }
 
                                         .form_check_box {
@@ -138,10 +145,17 @@ textarea {
                                         
                                         label {
                                             color: $color_ligth_secundario;
+                                            @include transition_elements();
                                         }
 
                                         .input_form {
                                             background-color: $color_ligth_secundario;
+                                            @include transition_elements();
+                                        }
+
+                                        .txt_instruccion {
+                                            color: $color_ligth_principal;
+                                            @include transition_elements();
                                         }
 
                                         .form_check_box {
