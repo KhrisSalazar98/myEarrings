@@ -4,12 +4,14 @@ import './sass/style.scss';
 
 import { useDispatch ,useSelector } from 'react-redux';
 import { getTheme } from './features/theme/themeSlice';
+import { getTasks } from './features/tasks/taskSlice';
 
 import Header from './components/Header';
 import Contenido from './components/Contenido';
 import TaskForm from './components/TaskForm';
 
-const KEY_THEME = "myearrings.trabajadores";
+const KEY_THEME = "myearrings.theme";
+const KEY_TASKS = "myearrings.tasks";
 
 function App() {
 
@@ -23,10 +25,16 @@ function App() {
 
   // Obtener la información del estado que se procesó previamente
   useEffect(() => {
+
     const storedTheme = JSON.parse(localStorage.getItem(KEY_THEME));
+    const storedTasks = JSON.parse(localStorage.getItem(KEY_TASKS));
 
     if(storedTheme){
       dispatch(getTheme(storedTheme));
+    }
+
+    if(storedTasks){
+      dispatch(getTasks(storedTasks));
     }
 
   }, []);
@@ -35,8 +43,9 @@ function App() {
   useEffect(() => {
 
     localStorage.setItem(KEY_THEME, JSON.stringify(selector));
+    localStorage.setItem(KEY_TASKS, JSON.stringify(selectorTasks));
 
-  }, [selector]);
+  }, [selector, selectorTasks]);
 
   body.classList.contains('Light') && body.classList.remove('Light');
   body.classList.contains('Dark') && body.classList.remove('Dark');

@@ -7,30 +7,30 @@ import { createSlice } from '@reduxjs/toolkit';
     status: 2 => completada
 */
 const initialState = [
-    {
-        id: "1",
-        name: "Tarea 1",
-        description: "Descripción de tarea 1",
-        status: 0,
-    },
-    {
-        id: "2",
-        name: "Tarea 2",
-        description: "Descripción de tarea 2",
-        status: 1,
-    },
-    {
-        id: "3",
-        name: "Tarea 3",
-        description: "Descripción de tarea 3",
-        status: 0,
-    },
-    {
-        id: "4",
-        name: "Tarea 4",
-        description: "Descripción de tarea 4",
-        status: 2,
-    },
+    // {
+    //     id: "1",
+    //     name: "Tarea 1",
+    //     description: "Descripción de tarea 1",
+    //     status: 0,
+    // },
+    // {
+    //     id: "2",
+    //     name: "Tarea 2",
+    //     description: "Descripción de tarea 2",
+    //     status: 1,
+    // },
+    // {
+    //     id: "3",
+    //     name: "Tarea 3",
+    //     description: "Descripción de tarea 3",
+    //     status: 0,
+    // },
+    // {
+    //     id: "4",
+    //     name: "Tarea 4",
+    //     description: "Descripción de tarea 4",
+    //     status: 2,
+    // },
 
 ];
 
@@ -38,6 +38,10 @@ export const taskSlice = createSlice({
     name: 'tasks',
     initialState,
     reducers: {
+        getTasks: (state, action) => {
+            state = action.payload;
+            return state;
+        },
         addTask: (state, action) => {
             
             const name = action.payload.name[0].toUpperCase() + action.payload.name.substring(1).toLowerCase();
@@ -71,9 +75,18 @@ export const taskSlice = createSlice({
                 foundTask.status = urgente === true ? 1 : 0;
             }
 
+        },
+        checkTask: (state, action) => {
+            const {id,check} = action.payload;
+            const foundTask = state.find((task) => task.id === id);
+
+            if(foundTask){
+                check ? foundTask.status = 2 : foundTask.status = 0;
+            }
+            
         }
     }
 });
 
-export const { addTask, deleteTask, editTask } = taskSlice.actions;
+export const { getTasks, addTask, deleteTask, editTask, checkTask } = taskSlice.actions;
 export default taskSlice.reducer;
