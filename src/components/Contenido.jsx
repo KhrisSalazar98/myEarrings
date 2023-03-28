@@ -1,17 +1,23 @@
 import React from 'react';
+
 import { Link } from  'react-router-dom';
 
 import { useDispatch } from 'react-redux';
-import { deleteTask } from '../features/tasks/taskSlice';
+import { deleteTask, checkTask } from '../features/tasks/taskSlice';
 
 const Contenido = ({selector, selectorTasks}) => {
 
     const dispatch = useDispatch();
 
     const handleDeleteTask = (id) => {
-        
         dispatch(deleteTask(id));
-    
+    }
+
+    const toggleCheckTask = (e,id) => {
+        dispatch(checkTask({
+            id: id,
+            check: e.target.checked,
+        }));
     }
 
     return (
@@ -30,7 +36,9 @@ const Contenido = ({selector, selectorTasks}) => {
 
                 </div>
 
-                <p className='txt_pendientes fs_18 mt-5 text-center'>Tienes {selectorTasks.length} tareas pendientes</p>
+                <p className='txt_pendientes fs_18 mt-5 text-center'>
+                    Tienes {selectorTasks.filter((task) => task.status !== 2).length === 1 ? `${selectorTasks.filter((task) => task.status !== 2).length} tarea pendiente` : `${selectorTasks.filter((task) => task.status !== 2).length} tareas pendientes`}
+                </p>
 
                 <div className="row mt-5 pb-5">
 
@@ -50,7 +58,7 @@ const Contenido = ({selector, selectorTasks}) => {
                                     <p className='txt_description text-center'>{task.description}</p>
 
                                     <div className="form_check_box form-check d-flex justify-content-center">
-                                        <input className="sombra_btn form-check-input me-1" defaultChecked={task.status === 2 ? true : false} type="checkbox" id={`flexCheck_${task.id}`} />
+                                        <input className="sombra_btn form-check-input me-1" onChange={(e) => toggleCheckTask(e,task.id)} defaultChecked={task.status === 2 ? true : false} type="checkbox" id={`flexCheck_${task.id}`} />
                                         <label className="form-check-label" htmlFor={`flexCheck_${task.id}`}>
                                             {task.status === 0 && <span className='fs_20 txt_pendiente'><strong>Pendiente</strong></span>}
                                             {task.status === 1 && <span className='fs_20 txt_urgente'><strong>Urgente</strong></span>}
