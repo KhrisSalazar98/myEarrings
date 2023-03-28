@@ -10,7 +10,7 @@ body {
     color: $color_ligth_secundario;
 }
 
-.form_check_box > .form-check-input {
+.form_check_box > .form-check-input, .input_form {
     border: 2px solid rgba(0,0,0,0.5) !important;
     @include transition_elements();
 }
@@ -113,7 +113,7 @@ body {
                                 }
 
                                 .btn_editar:hover{
-                                 @include color_hover($color_dark_secundario, $color_ligth_secundario);
+                                    @include color_hover($color_dark_secundario, $color_ligth_secundario);
                                 }
 
                                 .btn_editar_disable {
@@ -170,7 +170,7 @@ body {
                         div{
 
                             background-color: $color_dark_principal;
-                         @include transition_elements();
+                            @include transition_elements();
 
                             h3 {
                                 color: $color_ligth_principal;

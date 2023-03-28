@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './sass/style.scss';
 
 import { useDispatch ,useSelector } from 'react-redux';
@@ -6,6 +7,7 @@ import { getTheme } from './features/theme/themeSlice';
 
 import Header from './components/Header';
 import Contenido from './components/Contenido';
+import TaskForm from './components/TaskForm';
 
 const KEY_THEME = "myearrings.trabajadores";
 
@@ -44,7 +46,13 @@ function App() {
   return (
     <>
       <Header selector={selector}  />
-      <Contenido selector={selector} selectorTasks={selectorTasks} />
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Contenido selector={selector} selectorTasks={selectorTasks} />} />
+          <Route path='/nueva_tarea' element={<TaskForm txt_titulo={"Agregar Nueva Tarea"} txt_btn={"Agregar"} />}/>
+        </Routes>
+      </BrowserRouter>
+      
     </>
   );
 }

@@ -1,6 +1,18 @@
 import React from 'react';
+import { Link } from  'react-router-dom';
+
+import { useDispatch } from 'react-redux';
+import { deleteTask } from '../features/tasks/taskSlice';
 
 const Contenido = ({selector, selectorTasks}) => {
+
+    const dispatch = useDispatch();
+
+    const handleDeleteTask = (id) => {
+        
+        dispatch(deleteTask(id));
+    
+    }
 
     return (
         <main>
@@ -11,7 +23,11 @@ const Contenido = ({selector, selectorTasks}) => {
                 <hr/>
 
                 <div className='text-center text-lg-end'>
-                    <button className='btn_nuevaTarea sombra_btn border-0 px-4 py-1 rounded-pill' type="button">Nueva Tarea</button>
+
+                    <Link to="/nueva_tarea" className='btn_nuevaTarea sombra_btn border-0 px-4 py-1 rounded-pill text-decoration-none' type="button">
+                        Nueva Tarea
+                    </Link>
+
                 </div>
 
                 <p className='txt_pendientes fs_18 mt-5 text-center'>Tienes {selectorTasks.length} tareas pendientes</p>
@@ -19,14 +35,14 @@ const Contenido = ({selector, selectorTasks}) => {
                 <div className="row mt-5 pb-5">
 
 
-                    {selectorTasks.length > 1 && (
+                    {selectorTasks.length > 0 && (
                     
                         selectorTasks.map((task) => (
                             <div key={task.id} className="col-12 col-sm-12 col-md-4 col-lg-3">
                                 <div className='sombra mb-3 p-3 rounded-3'>
                                 
                                     <div className='text-end'>
-                                        <button className='btn-close btn-close-white'></button>
+                                        <button onClick={() => handleDeleteTask(task.id)} className='btn-close btn-close-white'></button>
                                     </div>
                                 
                                     <h3 className='mb-4 text-center'>{task.name}</h3>
@@ -60,7 +76,7 @@ const Contenido = ({selector, selectorTasks}) => {
                         ))
                     )}
 
-                    {selectorTasks.length <= 1 && (
+                    {selectorTasks.length <= 0 && (
                     
                         <div className='col-12 col-sm-12 fs_20'><p className={`${selector.mode === "Light" ? "color_dark_1" : "color_light_2"} text-center`}><strong>NO HAY TAREAS PENDIENTES O PREVIAMENTES COMPLETADAS EN ESTOS MOMENTOS</strong></p></div>
                     )}
