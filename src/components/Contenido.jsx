@@ -50,7 +50,7 @@ const Contenido = ({selector, selectorTasks}) => {
                                     <p className='txt_description text-center'>{task.description}</p>
 
                                     <div className="form_check_box form-check d-flex justify-content-center">
-                                        <input className="sombra_btn form-check-input me-1" defaultChecked={task.status === 2 ? true : false} type="checkbox" defaultValue id={`flexCheck_${task.id}`} />
+                                        <input className="sombra_btn form-check-input me-1" defaultChecked={task.status === 2 ? true : false} type="checkbox" id={`flexCheck_${task.id}`} />
                                         <label className="form-check-label" htmlFor={`flexCheck_${task.id}`}>
                                             {task.status === 0 && <span className='fs_20 txt_pendiente'><strong>Pendiente</strong></span>}
                                             {task.status === 1 && <span className='fs_20 txt_urgente'><strong>Urgente</strong></span>}
@@ -61,11 +61,11 @@ const Contenido = ({selector, selectorTasks}) => {
                                     <div className='text-center mt-4'>
                                         {task.status === 2 ?
                                             <>
-                                                <button className='btn_editar_disable sombra_btn border-0 px-4 py-1 rounded-pill'>Editar</button>
+                                                <button className='btn_editar_disable sombra_btn border-0 px-4 py-1 rounded-pill' type="button">Editar</button>
                                             </>
                                             :
                                             <>
-                                                <button className='btn_editar sombra_btn border-0 px-4 py-1 rounded-pill' type="button">Editar</button>
+                                                <Link to={`/editar_tarea/${task.id}`} className='btn_editar sombra_btn border-0 px-4 py-1 rounded-pill text-decoration-none' type="button">Editar</Link>
                                             </>
                                         }
                                     

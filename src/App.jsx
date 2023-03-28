@@ -50,6 +50,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Contenido selector={selector} selectorTasks={selectorTasks} />} />
           <Route path='/nueva_tarea' element={<TaskForm txt_titulo={"Agregar Nueva Tarea"} txt_btn={"Agregar"} />}/>
+          <Route path='/editar_tarea/:id' element={<TaskForm txt_titulo={"Editar Tarea"} txt_btn={"Guardar Cambios"} />} />
         </Routes>
       </BrowserRouter>
       

@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import {v4 as uuid} from 'uuid';
 
-import { useDispatch } from 'react-redux';
-import { addTask } from '../features/tasks/taskSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { addTask, editTask } from '../features/tasks/taskSlice';
 
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
 
 const TaskForm = ({txt_titulo, txt_btn}) => {
@@ -17,6 +17,9 @@ const TaskForm = ({txt_titulo, txt_btn}) => {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const params = useParams();
+    const tasks = useSelector(state => state.tasks);
+
 
     const handleChange = (e) => {
         
@@ -36,15 +39,43 @@ const TaskForm = ({txt_titulo, txt_btn}) => {
         
         e.preventDefault();
 
-        dispatch(addTask({
-            ...task,
-            id: uuid(),
-            urgente: document.querySelector('#flexCheck_agregar').checked,
-        }));
+        if(!params.id){
+            dispatch(addTask({
+                ...task,
+                id: uuid(),
+                urgente: document.querySelector('#flexCheck_agregar').checked,
+            }));
+        }
+
+        if(params.id){
+
+            dispatch(editTask({
+                ...task,
+                urgente: document.querySelector('#flexCheck_agregar').checked,
+            }));
+        }
+        
 
         navigate('/');
 
     }
+
+    useEffect(() => {
+        
+        params.id && setTask(tasks.find((task) => task.id === params.id));
+
+        const taskFound = tasks.find((task) => task.id === params.id);
+
+        if(params.id && taskFound === undefined) {
+            navigate('/');
+        }
+
+        if(params.id && task.status === 1){
+            document.querySelector('#flexCheck_agregar').checked = true;
+        }
+           
+    }, [params.id, tasks, task.status]);
+    
 
     return (
         <div className='taskForm'>
@@ -69,20 +100,41 @@ const TaskForm = ({txt_titulo, txt_btn}) => {
 
                                     <div className='col-12 col-sm-12 col-xl-11 mb-4 pt-4'>
                                         <label htmlFor="nombre">Nombre:</label>
-                                        <input type="text" id="nombre" name="name" onKeyUp={handleKeyUp} onChange={handleChange} className='input_form sombra_btn rounded-pill w-100' placeholder='Nombre de la tarea' />
-                                        <span>*Mínimo 3 caracteres</span>
+                                        <input 
+                                            type="text"
+                                            id="nombre"
+                                            name="name" 
+                                            onKeyUp={handleKeyUp}
+                                            onChange={handleChange}
+                                            className='input_form sombra_btn rounded-pill w-100' 
+                                            placeholder='Nombre de la tarea'
+                                            value={task.name} 
+                                        />
+                                        <span className='txt_instruccion'>*Mínimo 3 caracteres</span>
                                     </div>
 
                                     <div className='col-12 col-sm-12 col-xl-11 mb-4'>
                                         <label htmlFor="descripcion">Descripción:</label>
-                                        <textarea name="description" onChange={handleChange} className='input_form sombra_btn rounded-3 w-100' id="descripcion" placeholder='Descripción de la tarea' />
-                                        <span>(opcional)</span>
+                                        <textarea 
+                                            name="description"
+                                            onChange={handleChange}
+                                            className='input_form sombra_btn rounded-3 w-100'
+                                            id="descripcion"
+                                            placeholder='Descripción de la tarea'
+                                            value={task.description} 
+                                        />
+                                        <span className='txt_instruccion'>(opcional)</span>
                                     </div>
 
 
                                     <div className="col-12 col-sm-12 col-xl-11 mb-4">
                                         <div className="form_check_box form-check d-flex justify-content-start">
-                                            <input className="sombra_btn form-check-input me-1" type="checkbox" id={`flexCheck_agregar`} name="urgente" />
+                                            <input 
+                                                className="sombra_btn form-check-input me-1"
+                                                type="checkbox" 
+                                                id={`flexCheck_agregar`}
+                                                name="urgente" 
+                                            />
                                             <label className="form-check-label" htmlFor={`flexCheck_agregar`}>
                                                 <span className='txt_pendiente'>¿Urgente?</span>
                                             </label>
@@ -90,7 +142,7 @@ const TaskForm = ({txt_titulo, txt_btn}) => {
                                     </div>
 
                                     <div className='col-12 col-sm-12 col-xl-11 my-2 text-center'>
-                                        <button className='btn_disabled btn_editar sombra_btn border-0 px-4 py-1 rounded-pill' id="btnAgregar" type="submit">{txt_btn}</button>
+                                        <button className={`${params.id ? '' : 'btn_disabled'} btn_editar sombra_btn border-0 px-4 py-1 rounded-pill`} id="btnAgregar" type="submit">{txt_btn}</button>
                                     </div>
                                 </div>
 
