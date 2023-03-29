@@ -74,7 +74,7 @@ const TaskForm = ({txt_titulo, txt_btn}) => {
             document.querySelector('#flexCheck_agregar').checked = true;
         }
            
-    }, [params.id, tasks, task.status]);
+    }, [params.id, tasks, task.status, navigate]);
     
 
     return (
