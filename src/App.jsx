@@ -37,7 +37,7 @@ function App() {
       dispatch(getTasks(storedTasks));
     }
 
-  }, []);
+  }, [dispatch]);
 
   // Cada vez que el estado tenga cambios
   useEffect(() => {
