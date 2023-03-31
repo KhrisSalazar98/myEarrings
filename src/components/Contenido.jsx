@@ -36,11 +36,11 @@ const Contenido = ({selector, selectorTasks}) => {
 
                 </div>
 
-                <p className='txt_pendientes fs_18 mt-5 text-center'>
+                <p className='txt_pendientes fs_18 mt-2 text-center'>
                     Tienes {selectorTasks.filter((task) => task.status !== 2).length === 1 ? `${selectorTasks.filter((task) => task.status !== 2).length} tarea pendiente` : `${selectorTasks.filter((task) => task.status !== 2).length} tareas pendientes`}
                 </p>
 
-                <div className="row mt-5 pb-5">
+                <div className="row mt-2 pb-5">
 
 
                     {selectorTasks.length > 0 && (

@@ -17,10 +17,13 @@ const Header = ({selector}) => {
             <div className='container'>
                 <div className="row">
                     <div className="col-12 col-sm-12 col-lg-4 d-flex justify-content-center align-items-center">
-                        <div className="form-check form-switch mt-3 mt-lg-0">
+                        <label className={`${selector.isChecked ? "" : "opcTheme"} form-check-label`} htmlFor="flexSwitchCheckDefault">Luz</label>
+                        <div className="form-check form-switch mt-3 mt-lg-0 ms-2">
+                            
                             <input onChange={toggleTheme} checked={selector.isChecked} className="sombra_btn form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
-                            <label className="form-check-label" htmlFor="flexSwitchCheckDefault">{selector.mode} Mode</label>
+                            
                         </div>
+                        <label className={`${selector.isChecked ? "opcTheme" : ""} form-check-label`} htmlFor="flexSwitchCheckDefault">Oscuridad</label>
                     </div>
 
                     <div className="col-12 col-sm-12 col-lg-4">
