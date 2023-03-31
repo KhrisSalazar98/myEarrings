@@ -86,23 +86,40 @@ body {
 
 
                             .form_check_box {
+
+                                .form-check-input {
+                                    width: $font_20;
+                                    height: $font_20;
+                                }
+
                                 .form-check-input:checked[type=checkbox] {
                                     background-color: $color_dark_principal;
                                 }
 
                                 label {
-                                    .txt_pendiente {
-                                        color: $color_dark_secundario;
-                                    }
+                                    color: $color_dark_principal;
+                                }
+                            }
 
+                            div {
+
+                                span {
+                                    color: $color_dark_principal;
+                                    @include transition_elements();
+
+                                    .txt_pendiente { 
+                                        color: $color_pendiente;
+                                    }
+    
                                     .txt_urgente {
                                         animation: animacion_urgente 1.5s ease-out infinite;
                                     }
-
+    
                                     .txt_completado {
                                         animation: animacion_completado 1.5s ease-out infinite;
                                     }
                                 }
+                                
                             }
                         
                             div {
@@ -183,23 +200,40 @@ body {
 
                        
                             .form_check_box {
+
+                                .form-check-input {
+                                    width: $font_20;
+                                    height: $font_20;
+                                }
+
                                 .form-check-input:checked[type=checkbox] {
                                     background-color: $color_ligth_principal;
                                 }
 
                                 label {
-                                    .txt_pendiente {
-                                        color: $color_dark_secundario;
-                                    }
+                                    color: $color_ligth_secundario;
+                                }
+                            }
 
+                            div {
+
+                                span {
+                                    color: $color_ligth_secundario;
+                                    @include transition_elements();
+
+                                    .txt_pendiente { 
+                                        color: $color_pendiente;
+                                    }
+    
                                     .txt_urgente {
                                         animation: animacion_urgente 1.5s ease-out infinite;
                                     }
-
+    
                                     .txt_completado {
                                         animation: animacion_completado 1.5s ease-out infinite;
                                     }
                                 }
+                                
                             }
 
                             div {

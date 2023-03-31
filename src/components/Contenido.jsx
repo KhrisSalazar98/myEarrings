@@ -57,16 +57,20 @@ const Contenido = ({selector, selectorTasks}) => {
 
                                     <p className='txt_description text-center'>{task.description}</p>
 
-                                    <div className="form_check_box form-check d-flex justify-content-center">
+                                    <div className="form_check_box form-check d-flex justify-content-center mt-3">
                                         <input className="sombra_btn form-check-input me-1" onChange={(e) => toggleCheckTask(e,task.id)} defaultChecked={task.status === 2 ? true : false} type="checkbox" id={`flexCheck_${task.id}`} />
-                                        <label className="form-check-label" htmlFor={`flexCheck_${task.id}`}>
-                                            {task.status === 0 && <span className='fs_20 txt_pendiente'><strong>Pendiente</strong></span>}
-                                            {task.status === 1 && <span className='fs_20 txt_urgente'><strong>Urgente</strong></span>}
-                                            {task.status === 2 && <span className='fs_20 txt_completado'><strong>Completado</strong></span>}
+                                        <label className="form-check-label fs_18" htmlFor={`flexCheck_${task.id}`}>
+                                            ¿Tarea Finalizada?
                                         </label>
                                     </div>
 
-                                    <div className='text-center mt-4'>
+                                    <div className='text-center mt-3'>
+                                        {task.status === 0 && <span>Tarea <strong className='fs_20 txt_pendiente'>Pendiente</strong></span>}
+                                        {task.status === 1 && <span>Tarea <strong className='fs_20 txt_urgente'>Urgente</strong></span>}
+                                        {task.status === 2 && <span>Esta tarea está <strong className='fs_20 txt_completado'>Completada</strong></span>}
+                                    </div>
+
+                                    <div className='text-center mt-4 mb-3'>
                                         {task.status === 2 ?
                                             <>
                                                 <button className='btn_editar_disable sombra_btn border-0 px-4 py-1 rounded-pill' type="button">Editar</button>

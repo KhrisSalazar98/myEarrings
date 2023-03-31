@@ -109,6 +109,7 @@ const TaskForm = ({txt_titulo, txt_btn}) => {
                                             className='input_form sombra_btn rounded-pill w-100' 
                                             placeholder='Nombre de la tarea'
                                             value={task.name} 
+                                            autoComplete="off"
                                         />
                                         <span className='txt_instruccion'>*Mínimo 3 caracteres</span>
                                     </div>
@@ -121,7 +122,8 @@ const TaskForm = ({txt_titulo, txt_btn}) => {
                                             className='input_form sombra_btn rounded-3 w-100'
                                             id="descripcion"
                                             placeholder='Descripción de la tarea'
-                                            value={task.description} 
+                                            value={task.description}
+                                            autoComplete="off" 
                                         />
                                         <span className='txt_instruccion'>(opcional)</span>
                                     </div>
