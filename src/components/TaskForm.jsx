@@ -7,6 +7,9 @@ import { addTask, editTask } from '../features/tasks/taskSlice';
 
 import { Link, useNavigate, useParams } from 'react-router-dom';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faCircleLeft, faFileCirclePlus, faFilePen, faCirclePlus, faPencil} from '@fortawesome/free-solid-svg-icons';
+
 
 const TaskForm = ({txt_titulo, txt_btn}) => {
 
@@ -80,14 +83,14 @@ const TaskForm = ({txt_titulo, txt_btn}) => {
     return (
         <div className='taskForm'>
             <div className='container'>
-                <h2 className='pt-4 text-center'>{txt_titulo}</h2>
+                <h2 className='pt-4 text-center'>{txt_titulo === "Agregar Nueva Tarea" ? <FontAwesomeIcon icon={faFileCirclePlus} size="xs" /> : <FontAwesomeIcon icon={faFilePen} size="xs" />} {txt_titulo}</h2>
 
                 <hr/>
 
                 <div className='text-center text-lg-end'>
 
                     <Link to="/" className='btn_nuevaTarea sombra_btn border-0 px-4 py-1 rounded-pill text-decoration-none' type="button">
-                        Volver
+                        <FontAwesomeIcon icon={faCircleLeft} /> Volver
                     </Link>
                     
                 </div>
@@ -109,6 +112,7 @@ const TaskForm = ({txt_titulo, txt_btn}) => {
                                             className='input_form sombra_btn rounded-pill w-100' 
                                             placeholder='Nombre de la tarea'
                                             value={task.name} 
+                                            autoComplete="off"
                                         />
                                         <span className='txt_instruccion'>*Mínimo 3 caracteres</span>
                                     </div>
@@ -121,7 +125,8 @@ const TaskForm = ({txt_titulo, txt_btn}) => {
                                             className='input_form sombra_btn rounded-3 w-100'
                                             id="descripcion"
                                             placeholder='Descripción de la tarea'
-                                            value={task.description} 
+                                            value={task.description}
+                                            autoComplete="off" 
                                         />
                                         <span className='txt_instruccion'>(opcional)</span>
                                     </div>
@@ -142,7 +147,7 @@ const TaskForm = ({txt_titulo, txt_btn}) => {
                                     </div>
 
                                     <div className='col-12 col-sm-12 col-xl-11 my-2 text-center'>
-                                        <button className={`${params.id ? '' : 'btn_disabled'} btn_editar sombra_btn border-0 px-4 py-1 rounded-pill`} id="btnAgregar" type="submit">{txt_btn}</button>
+                                        <button className={`${params.id ? '' : 'btn_disabled'} btn_editar sombra_btn border-0 px-4 py-1 rounded-pill`} id="btnAgregar" type="submit">{txt_btn === "Agregar" ? <FontAwesomeIcon icon={faCirclePlus} /> : <FontAwesomeIcon icon={faPencil} />} {txt_btn}</button>
                                     </div>
                                 </div>
 

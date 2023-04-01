@@ -71,6 +71,12 @@ textarea {
                                         }
 
                                         .form_check_box {
+
+                                            .form-check-input {
+                                                width: $font_20;
+                                                height: $font_20;
+                                            }
+
                                             .form-check-input:checked[type=checkbox] {
                                                 background-color: $color_dark_principal;
                                             }
@@ -159,6 +165,12 @@ textarea {
                                         }
 
                                         .form_check_box {
+
+                                            .form-check-input {
+                                                width: $font_20;
+                                                height: $font_20;
+                                            }
+
                                             .form-check-input:checked[type=checkbox] {
                                                 background-color: $color_ligth_principal;
                                             }
