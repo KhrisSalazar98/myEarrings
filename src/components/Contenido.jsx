@@ -5,6 +5,9 @@ import { Link } from  'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { deleteTask, checkTask } from '../features/tasks/taskSlice';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faPlus, faPenToSquare, faListUl, faTriangleExclamation, faThumbsUp} from '@fortawesome/free-solid-svg-icons';
+
 const Contenido = ({selector, selectorTasks}) => {
 
     const dispatch = useDispatch();
@@ -24,14 +27,14 @@ const Contenido = ({selector, selectorTasks}) => {
         <main>
             <div className="container">
                 
-                <h2 className='pt-4 text-center'>Listado de tareas</h2>
+                <h2 className='pt-4 text-center'><FontAwesomeIcon icon={faListUl} size="2xs" /> Listado de tareas</h2>
 
                 <hr/>
 
                 <div className='text-center text-lg-end'>
 
                     <Link to="/nueva_tarea" className='btn_nuevaTarea sombra_btn border-0 px-4 py-1 rounded-pill text-decoration-none' type="button">
-                        Nueva Tarea
+                        <FontAwesomeIcon icon={faPlus} /> Nueva Tarea
                     </Link>
 
                 </div>
@@ -66,18 +69,18 @@ const Contenido = ({selector, selectorTasks}) => {
 
                                     <div className='text-center mt-3'>
                                         {task.status === 0 && <span>Tarea <strong className='fs_20 txt_pendiente'>Pendiente</strong></span>}
-                                        {task.status === 1 && <span>Tarea <strong className='fs_20 txt_urgente'>Urgente</strong></span>}
-                                        {task.status === 2 && <span>Esta tarea está <strong className='fs_20 txt_completado'>Completada</strong></span>}
+                                        {task.status === 1 && <span>Tarea <strong className='fs_20 txt_urgente'>Urgente <FontAwesomeIcon icon={faTriangleExclamation} /></strong></span>}
+                                        {task.status === 2 && <span>Esta tarea está <strong className='fs_20 txt_completado'>Completada <FontAwesomeIcon icon={faThumbsUp} /></strong></span>}
                                     </div>
 
                                     <div className='text-center mt-4 mb-3'>
                                         {task.status === 2 ?
                                             <>
-                                                <button className='btn_editar_disable sombra_btn border-0 px-4 py-1 rounded-pill' type="button">Editar</button>
+                                                <button className='btn_editar_disable sombra_btn border-0 px-4 py-1 rounded-pill' type="button"><FontAwesomeIcon icon={faPenToSquare} /> Editar</button>
                                             </>
                                             :
                                             <>
-                                                <Link to={`/editar_tarea/${task.id}`} className='btn_editar sombra_btn border-0 px-4 py-1 rounded-pill text-decoration-none' type="button">Editar</Link>
+                                                <Link to={`/editar_tarea/${task.id}`} className='btn_editar sombra_btn border-0 px-4 py-1 rounded-pill text-decoration-none' type="button"><FontAwesomeIcon icon={faPenToSquare} /> Editar</Link>
                                             </>
                                         }
                                     
