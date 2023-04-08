@@ -46,14 +46,19 @@ export const taskSlice = createSlice({
             
             const name = action.payload.name[0].toUpperCase() + action.payload.name.substring(1).toLowerCase();
 
+            const diaActual = new Date().getDate();
+            const mesActual = new Intl.DateTimeFormat('es-ES', { month: 'long'}).format(new Date());
+            const year = new Date().getFullYear();
+
             const newTask = {
                 id: action.payload.id,
                 name: name,
                 description: action.payload.description !== '' && action.payload.description.length > 1 ? action.payload.description[0].toUpperCase() + action.payload.description.substring(1).toLowerCase() : '',
-                status: action.payload.urgente === true ? 1 : 0
+                status: action.payload.urgente === true ? 1 : 0,
+                date: `${diaActual} ${mesActual} ${year}`,
             }
 
-            state.push(newTask);
+            state.unshift(newTask);
         },
         deleteTask: (state, action) => {
 
@@ -69,10 +74,15 @@ export const taskSlice = createSlice({
             const newName = name[0].toUpperCase() + name.substring(1).toLowerCase();
             const foundTask = state.find((task) => task.id === id);
 
+            const diaActual = new Date().getDate();
+            const mesActual = new Intl.DateTimeFormat('es-ES', { month: 'long'}).format(new Date());
+            const year = new Date().getFullYear();
+
             if(foundTask){
                 foundTask.name = newName;
                 foundTask.description = description !== '' && description.length > 1 ? description[0].toUpperCase() + description.substring(1).toLowerCase() : '';
                 foundTask.status = urgente === true ? 1 : 0;
+                foundTask.date = `${diaActual} ${mesActual} ${year}`;
             }
 
         },

@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { deleteTask, checkTask } from '../features/tasks/taskSlice';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faPlus, faPenToSquare, faListUl, faTriangleExclamation, faThumbsUp} from '@fortawesome/free-solid-svg-icons';
+import {faPlus, faPenToSquare, faListUl, faTriangleExclamation, faThumbsUp, faCalendarDays} from '@fortawesome/free-solid-svg-icons';
 
 const Contenido = ({selector, selectorTasks}) => {
 
@@ -54,6 +54,10 @@ const Contenido = ({selector, selectorTasks}) => {
                                 
                                     <div className='text-end'>
                                         <button onClick={() => handleDeleteTask(task.id)} className='btn-close btn-close-white'></button>
+                                    </div>
+
+                                    <div className='mb-4'>
+                                        <span><FontAwesomeIcon icon={faCalendarDays} /> {task.date}</span>
                                     </div>
                                 
                                     <h3 className={`${task.status === 2 ? 'txt_tachado' : ""} mb-4 text-center`}>{task.name}</h3>
