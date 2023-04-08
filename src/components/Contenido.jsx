@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { deleteTask, checkTask } from '../features/tasks/taskSlice';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faPlus, faPenToSquare, faListUl, faTriangleExclamation, faThumbsUp} from '@fortawesome/free-solid-svg-icons';
+import {faPlus, faPenToSquare, faListUl, faTriangleExclamation, faThumbsUp, faCalendarDays} from '@fortawesome/free-solid-svg-icons';
 
 const Contenido = ({selector, selectorTasks}) => {
 
@@ -55,10 +55,14 @@ const Contenido = ({selector, selectorTasks}) => {
                                     <div className='text-end'>
                                         <button onClick={() => handleDeleteTask(task.id)} className='btn-close btn-close-white'></button>
                                     </div>
-                                
-                                    <h3 className='mb-4 text-center'>{task.name}</h3>
 
-                                    <p className='txt_description text-center'>{task.description}</p>
+                                    <div className='mb-4'>
+                                        <span><FontAwesomeIcon icon={faCalendarDays} /> {task.date}</span>
+                                    </div>
+                                
+                                    <h3 className={`${task.status === 2 ? 'txt_tachado' : ""} mb-4 text-center`}>{task.name}</h3>
+
+                                    <p className={`${task.status === 2 ? 'txt_tachado' : ""} txt_description text-center`}>{task.description}</p>
 
                                     <div className="form_check_box form-check d-flex justify-content-center mt-3">
                                         <input className="sombra_btn form-check-input me-1" onChange={(e) => toggleCheckTask(e,task.id)} defaultChecked={task.status === 2 ? true : false} type="checkbox" id={`flexCheck_${task.id}`} />

@@ -3,7 +3,7 @@
   "name": "My Earrings - PWA",
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#6C3604",
+  "theme_color": "#837d78",
   "background_color": "#FF9500",
   "icons": [
     {
