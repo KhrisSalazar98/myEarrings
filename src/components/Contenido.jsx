@@ -56,9 +56,9 @@ const Contenido = ({selector, selectorTasks}) => {
                                         <button onClick={() => handleDeleteTask(task.id)} className='btn-close btn-close-white'></button>
                                     </div>
                                 
-                                    <h3 className='mb-4 text-center'>{task.name}</h3>
+                                    <h3 className={`${task.status === 2 ? 'txt_tachado' : ""} mb-4 text-center`}>{task.name}</h3>
 
-                                    <p className='txt_description text-center'>{task.description}</p>
+                                    <p className={`${task.status === 2 ? 'txt_tachado' : ""} txt_description text-center`}>{task.description}</p>
 
                                     <div className="form_check_box form-check d-flex justify-content-center mt-3">
                                         <input className="sombra_btn form-check-input me-1" onChange={(e) => toggleCheckTask(e,task.id)} defaultChecked={task.status === 2 ? true : false} type="checkbox" id={`flexCheck_${task.id}`} />
