@@ -46,6 +46,7 @@ export const taskSlice = createSlice({
             
             const name = action.payload.name[0].toUpperCase() + action.payload.name.substring(1).toLowerCase();
 
+            //Formatear fecha actual
             const diaActual = new Date().getDate();
             const mesActual = new Intl.DateTimeFormat('es-ES', { month: 'long'}).format(new Date());
             const year = new Date().getFullYear();
@@ -74,6 +75,7 @@ export const taskSlice = createSlice({
             const newName = name[0].toUpperCase() + name.substring(1).toLowerCase();
             const foundTask = state.find((task) => task.id === id);
 
+            //Formatear fecha actual
             const diaActual = new Date().getDate();
             const mesActual = new Intl.DateTimeFormat('es-ES', { month: 'long'}).format(new Date());
             const year = new Date().getFullYear();
